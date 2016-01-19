@@ -12,6 +12,9 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText userEditText, passwordEditText, nameEditText, surnameEditText,
             phoneEditText, emailEditText;
     private RadioGroup sexRadioGroup;
+    private String userString, passwordString, nameString, surnameString,
+            phoneString, emailString, sexString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +41,36 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void clickSignUpSave(View view) {
 
+        userString = userEditText.getText().toString().trim();
+        passwordString = passwordEditText.getText().toString().trim();
+        nameString = nameEditText.getText().toString().trim();
+        surnameString = surnameEditText.getText().toString().trim();
+        phoneString = phoneEditText.getText().toString().trim();
+        emailString = emailEditText.getText().toString().trim();
 
+        if (checkSpace()) {
+            //Have Space
+            MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+            objMyAlertDialog.MyDialog(SignUpActivity.this,
+                    R.drawable.icon_question, "กรอกข้อมูลไม่ครบ",
+                    "กรุณากรอกข้อมูล และ เลือกข้อมูล ให้ครบ คะ");
+
+
+        } else {
+            //No Space
+
+        }   // if
 
 
     }   // clickSignUpSave
+
+    private boolean checkSpace() {
+        return userString.equals("") ||
+                passwordString.equals("") ||
+                nameString.equals("") ||
+                surnameString.equals("") ||
+                phoneString.equals("") ||
+                emailString.equals("");
+    }
 
 }   // Main Class
