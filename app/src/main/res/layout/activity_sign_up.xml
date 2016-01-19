@@ -46,7 +46,8 @@
                     android:text="@string/username"
                     android:id="@+id/textView2"
                     android:textSize="@dimen/h2"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#1cfc07" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -66,7 +67,8 @@
                     android:text="@string/password"
                     android:id="@+id/textView3"
                     android:textSize="@dimen/h2"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#1cfc07" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -86,7 +88,8 @@
                     android:text="@string/confirmpassword"
                     android:id="@+id/textView4"
                     android:textSize="@dimen/h2"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#1cfc07" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -106,7 +109,8 @@
                     android:text="@string/name"
                     android:id="@+id/textView5"
                     android:textSize="@dimen/h2"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#1cfc07" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -126,7 +130,8 @@
                     android:text="@string/gender"
                     android:id="@+id/textView6"
                     android:textSize="@dimen/h2"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#1cfc07" />
 
             </LinearLayout>
 
@@ -138,16 +143,16 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New RadioButton"
+                    android:text="@string/male"
                     android:id="@+id/radioButton"
-                    android:layout_weight="1"
-                    android:checked="false" />
+                    android:layout_weight="1" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New RadioButton"
+                    android:text="@string/female"
                     android:id="@+id/radioButton2"
+                    android:checked="false"
                     android:layout_weight="1" />
             </RadioGroup>
 
@@ -162,7 +167,8 @@
                     android:id="@+id/textView7"
                     android:textSize="@dimen/h2"
                     android:layout_weight="1"
-                    android:text="@string/phone" />
+                    android:text="@string/phone"
+                    android:textColor="#1cfc07" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -182,7 +188,8 @@
                     android:text="@string/email"
                     android:id="@+id/textView8"
                     android:textSize="@dimen/h2"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#1cfc07" />
 
                 <EditText
                     android:layout_width="0dp"
