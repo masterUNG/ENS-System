@@ -1,11 +1,21 @@
 <resources>
     <string name="app_name">ENS System</string>
 
-    <!--master-->
+    <!--Biw-->
     <string name="user">User :</string>
     <string name="pass">Password :</string>
     <string name="signin">Sign In</string>
-    <string name="signup">Sign Up</string>
+    <string name="signup">Sing Up</string>
+    <!--Kao-->
+    <string name="username">ชื่อ :</string>
+    <string name="password">รหัสผ่าน :</string>
+    <string name="confirmpassword">ยืนยันรหัสผ่าน</string>
+    <string name="name">ชื่อ :</string>
+    <string name="gender">เพศ :</string>
+    <string name="phone">เบอร์โทรศัพท์ :</string>
+    <string name="email">อีเมล :</string>
+
+
 
 
 </resources>

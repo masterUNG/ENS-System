@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="appewtc.masterung.enssystem.MainActivity"
+    tools:context=".MainActivity"
     android:background="@drawable/wall">
 
     <LinearLayout
@@ -14,8 +14,8 @@
         android:layout_marginTop="50dp">
 
         <ImageView
-            android:layout_width="@dimen/logo"
-            android:layout_height="@dimen/logo"
+            android:layout_width="@dimen/icon"
+            android:layout_height="@dimen/icon"
             android:id="@+id/imageView"
             android:src="@drawable/logo200"
             android:layout_gravity="center_horizontal" />
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText2"
             android:hint="@string/pass" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -49,8 +50,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="clickSignUp"
             android:text="@string/signup"
             android:id="@+id/button2"
             android:layout_weight="1" />
     </LinearLayout>
+
 </RelativeLayout>
