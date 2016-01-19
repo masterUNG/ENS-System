@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ENS System</string>
+
+    <!--master-->
+    <string name="user">User :</string>
+    <string name="pass">Password :</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+
+
 </resources>
