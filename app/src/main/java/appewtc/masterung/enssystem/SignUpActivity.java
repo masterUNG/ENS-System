@@ -171,7 +171,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
 
-
     }   // updateValueToMySQL
 
     private boolean checkSpace() {
