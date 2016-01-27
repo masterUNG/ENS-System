@@ -3,10 +3,21 @@ package appewtc.masterung.enssystem;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -126,6 +137,38 @@ public class SignUpActivity extends AppCompatActivity {
     }   // confirmSignUp
 
     private void updateValueToMySQL() {
+
+        //Set Policy
+        StrictMode.ThreadPolicy myPolicy = new StrictMode.ThreadPolicy
+                .Builder().permitAll().build();
+        StrictMode.setThreadPolicy(myPolicy);
+
+        //Update to MySQL
+        try {
+
+            ArrayList<NameValuePair> objNameValuePairs = new ArrayList<NameValuePair>();
+            objNameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            objNameValuePairs.add(new BasicNameValuePair("User", userString));
+            objNameValuePairs.add(new BasicNameValuePair("Password", passwordString));
+            objNameValuePairs.add(new BasicNameValuePair("Name", nameString));
+            objNameValuePairs.add(new BasicNameValuePair("Surname", surnameString));
+            objNameValuePairs.add(new BasicNameValuePair("Sex", sexString));
+            objNameValuePairs.add(new BasicNameValuePair("Phone", phoneString));
+            objNameValuePairs.add(new BasicNameValuePair("Email", emailString));
+
+            HttpClient objHttpClient = new DefaultHttpClient();
+            HttpPost objHttpPost = new HttpPost("http://swiftcodingthai.com/ens/php_add_data_master.php");
+            objHttpPost.setEntity(new UrlEncodedFormEntity(objNameValuePairs, "UTF-8"));
+            objHttpClient.execute(objHttpPost);
+
+            Toast.makeText(SignUpActivity.this, "Update New Value Success",
+                    Toast.LENGTH_SHORT).show();
+            finish();
+
+        } catch (Exception e) {
+            Toast.makeText(SignUpActivity.this, "Cannot Connected Internet",
+                    Toast.LENGTH_SHORT).show();
+        }
 
 
 
