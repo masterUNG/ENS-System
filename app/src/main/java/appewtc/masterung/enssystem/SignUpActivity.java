@@ -1,6 +1,7 @@
 package appewtc.masterung.enssystem;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -104,6 +105,19 @@ public class SignUpActivity extends AppCompatActivity {
                 "เพศ = " + sexString + "\n" +
                 "เบอร์โทร = " + phoneString + "\n" +
                 "Email = " + emailString);
+        objBuilder.setCancelable(false);
+        objBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        objBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
 
 
 
