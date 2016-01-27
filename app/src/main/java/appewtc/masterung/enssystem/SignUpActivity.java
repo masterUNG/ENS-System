@@ -14,6 +14,7 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioGroup sexRadioGroup;
     private String userString, passwordString, nameString, surnameString,
             phoneString, emailString, sexString;
+    private boolean statusABoolean = true;
 
 
     @Override
@@ -24,7 +25,23 @@ public class SignUpActivity extends AppCompatActivity {
         //Bind Widget
         bindWidget();
 
+        //RadioGroup Controller
+        ragController();
+
     }   // Main Method
+
+    private void ragController() {
+
+        sexRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkID) {
+
+                statusABoolean = false;
+
+            }   // event
+        });
+
+    }   // ragController
 
     private void bindWidget() {
 
@@ -48,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
         phoneString = phoneEditText.getText().toString().trim();
         emailString = emailEditText.getText().toString().trim();
 
-        if (checkSpace()) {
+        if (checkSpace() || statusABoolean) {
             //Have Space
             MyAlertDialog objMyAlertDialog = new MyAlertDialog();
             objMyAlertDialog.MyDialog(SignUpActivity.this,
@@ -58,6 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         } else {
             //No Space
+
 
         }   // if
 
