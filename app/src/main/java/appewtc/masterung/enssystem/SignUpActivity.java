@@ -110,6 +110,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
+                updateValueToMySQL();
             }
         });
         objBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -123,6 +124,12 @@ public class SignUpActivity extends AppCompatActivity {
 
         objBuilder.show();
     }   // confirmSignUp
+
+    private void updateValueToMySQL() {
+
+
+
+    }   // updateValueToMySQL
 
     private boolean checkSpace() {
         return userString.equals("") ||
