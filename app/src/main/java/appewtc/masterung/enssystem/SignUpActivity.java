@@ -39,6 +39,15 @@ public class SignUpActivity extends AppCompatActivity {
 
                 statusABoolean = false;
 
+                switch (checkID) {
+                    case R.id.radioButton:
+                        sexString = getResources().getString(R.string.male);
+                        break;
+                    case R.id.radioButton2:
+                        sexString = getResources().getString(R.string.female);
+                        break;
+                }   // switch
+
             }   // event
         });
 
