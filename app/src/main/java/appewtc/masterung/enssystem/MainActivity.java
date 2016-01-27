@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     //Explicit
     private EditText userEditText, passwordEditText;
     private String userString, passwordString;
+    private ManageTABLE objManageTABLE;
 
 
     @Override
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Bind Widget
         bindWidget();
+
+        //Request Database
+        objManageTABLE = new ManageTABLE(this);
 
     }   // Main Method
 
