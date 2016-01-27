@@ -1,5 +1,6 @@
 package appewtc.masterung.enssystem;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -75,12 +76,29 @@ public class SignUpActivity extends AppCompatActivity {
 
         } else {
             //No Space
-
+            confirmSignUp();
 
         }   // if
 
 
     }   // clickSignUpSave
+
+    private void confirmSignUp() {
+
+        AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
+        objBuilder.setIcon(R.drawable.logo48);
+        objBuilder.setTitle("โปรดตรวจข้อมูล");
+        objBuilder.setMessage("User = " + userString + "\n" +
+                "Password = " + passwordString + "\n" +
+                "ชื่อ = " + nameString + "\n" +
+                "นามสกุล = " + surnameString + "\n" +
+                "เพศ = " + sexString + "\n" +
+                "เบอร์โทร = " + phoneString + "\n" +
+                "Email = " + emailString);
+
+
+        objBuilder.show();
+    }   // confirmSignUp
 
     private boolean checkSpace() {
         return userString.equals("") ||
