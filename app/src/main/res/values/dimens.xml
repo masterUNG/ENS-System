@@ -12,5 +12,8 @@
     <!--Kao-->
     <dimen name="icon">150dp</dimen>
 
+    <dimen name="height">140dp</dimen>
+    <dimen name="flat">60dp</dimen>
+
 
 </resources>
