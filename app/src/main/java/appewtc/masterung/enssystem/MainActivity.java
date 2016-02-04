@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         objManageTABLE.addNews("title", "detail", "video", "photo", "day news", "user admin");
 
+        objManageTABLE.addCall("Name Call", "123456");
+
     }   // testAddValue
 
     private void synJSONtoSQLite() {

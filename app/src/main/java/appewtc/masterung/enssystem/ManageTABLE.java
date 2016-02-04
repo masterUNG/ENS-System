@@ -43,6 +43,17 @@ public class ManageTABLE {
 
     }   // Constructor
 
+    //Add New Value to callTABLE
+    public long addCall(String strName_Call,
+                        String strPhone_Call) {
+
+        ContentValues objContentValues = new ContentValues();
+        objContentValues.put(COLUMN_Name_Call, strName_Call);
+        objContentValues.put(COLUMN_Phone_Call, strPhone_Call);
+
+        return writeSqLiteDatabase.insert(TABLE_callTABLE, null, objContentValues);
+    }
+
     //Add New Value to newsTABLE
     public long addNews(String strTitle_News,
                         String strDetail_News,
