@@ -1,6 +1,7 @@
 package appewtc.masterung.enssystem;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,13 +28,26 @@ public class MainActivity extends AppCompatActivity {
         objManageTABLE = new ManageTABLE(this);
 
         //Test Add Value
-        testAddValue();
+        //testAddValue();
+
+        //Delete All data
+        deleteAllData();
 
         //Synchronize JSON to SQLite
         synJSONtoSQLite();
 
 
     }   // Main Method
+
+    private void deleteAllData() {
+
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,
+                MODE_PRIVATE, null);
+        objSqLiteDatabase.delete(ManageTABLE.TABLE_callTABLE, null, null);
+        objSqLiteDatabase.delete(ManageTABLE.TABLE_newsTABLE, null, null);
+        objSqLiteDatabase.delete(ManageTABLE.TABLE_userTABLE, null, null);
+
+    }   // deleteAllData
 
     private void testAddValue() {
 
