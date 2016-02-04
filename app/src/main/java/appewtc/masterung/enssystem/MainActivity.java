@@ -5,8 +5,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,6 +81,27 @@ public class MainActivity extends AppCompatActivity {
             String strURLcall = "http://swiftcodingthai.com/ens/php_get_call.php";
 
             //1. Create InputStream
+            InputStream objInputStream = null;
+            HttpPost objHttpPost = null;
+
+            try {
+
+                HttpClient objHttpClient = new DefaultHttpClient();
+
+                switch (intTABLE) {
+                    case 1:
+                        objHttpPost = new HttpPost(strURLuser);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }   // switch
+
+            } catch (Exception e) {
+                Log.d("ens", "InputStream ==> " + e.toString());
+            }
+
 
             //2. Create JSON String
 
