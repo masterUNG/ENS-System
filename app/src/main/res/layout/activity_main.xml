@@ -30,7 +30,8 @@
             android:layout_width="@dimen/edittext"
             android:layout_height="wrap_content"
             android:id="@+id/editText2"
-            android:hint="@string/pass" />
+            android:hint="@string/pass"
+            android:inputType="textPassword" />
 
     </LinearLayout>
 
