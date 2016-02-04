@@ -2,6 +2,7 @@ package appewtc.masterung.enssystem;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -42,6 +43,41 @@ public class ManageTABLE {
         readSqLiteDatabase = objMyOpenHelper.getReadableDatabase();
 
     }   // Constructor
+
+    //Search user on userTABLE
+    public String[] searchUser(String strUser) {
+
+        try {
+
+            String[] resultStrings = null;
+            Cursor objCursor = readSqLiteDatabase.query(TABLE_userTABLE,
+                    new String[]{COLUMN_id, COLUMN_User, COLUMN_Password, COLUMN_Name, COLUMN_Surname},
+                    COLUMN_User + "=?",
+                    new String[]{String.valueOf(strUser)},
+                    null, null, null, null);
+
+            if (objCursor != null) {
+
+                if (objCursor.moveToFirst()) {
+
+                    resultStrings = new String[objCursor.getColumnCount()];
+                    for (int i=0;i<objCursor.getColumnCount();i++) {
+                        resultStrings[i] = objCursor.getString(i);
+                    }   // for
+
+                }   // if2
+
+            }   // if1
+
+            objCursor.close();
+            return resultStrings;
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        //return new String[0];
+    }
 
     //Add New Value to callTABLE
     public long addCall(String strName_Call,

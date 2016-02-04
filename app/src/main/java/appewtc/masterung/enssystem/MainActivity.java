@@ -215,11 +215,42 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             //No Space
+            checkUserAndPassword();
+
 
         }   // if
 
 
     }   // clickSignIn
+
+    private void checkUserAndPassword() {
+
+        try {
+
+            String[] resultStrings = objManageTABLE.searchUser(userString);
+
+            //Check Password
+            if (passwordString.equals(resultStrings[2])) {
+
+                //Password True
+
+
+            } else {
+
+                //Password False
+                MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+                objMyAlertDialog.MyDialog(MainActivity.this, R.drawable.icon_question,
+                        "Password False", "โปรกรอก Password ใหม่ คุณกรอกผิด");
+
+            }
+
+        } catch (Exception e) {
+            MyAlertDialog objMyAlertDialog = new MyAlertDialog();
+            objMyAlertDialog.MyDialog(MainActivity.this, R.drawable.icon_question, "No This User",
+                    "ไม่มี " + userString + " ในฐานข้อมูลของเรา");
+        }
+
+    }   // checkUserAndPassword
 
 
     public void clickSignUp(View view) {
