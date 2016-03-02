@@ -23,7 +23,7 @@
     <string name="surnamebox">Surname</string>
     <string name="phonebox">Phone Number</string>
     <string name="emailbox">E-Mail</string>
-    
+
     <string name="en_infor">Inform</string>
     <string name="en_news">News</string>
     <string name="en_search">Search</string>
@@ -35,7 +35,6 @@
     <string name="th_search">ค้นหา</string>
     <string name="th_status">สถิติ</string>
     <string name="th_call">เบอร์ฉุกเฉิน</string>
-
 
 
 </resources>
