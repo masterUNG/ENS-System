@@ -87,14 +87,25 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.button5:
                 //Update
+                getDateFromDatePicker();
 
                 showLog();
-
                 break;
 
         } // switch
 
     }   // onClick
+
+    private void getDateFromDatePicker() {
+
+        int intDay = datePicker.getDayOfMonth();
+        int intMonth = datePicker.getMonth() + 1;
+        int intYear = datePicker.getYear();
+
+        dateString = Integer.toString(intDay) + "/" +
+                Integer.toString(intMonth) + "/" + Integer.toString(intYear);
+
+    }   // getDateFromDatePicker
 
     private void showLog() {
 
