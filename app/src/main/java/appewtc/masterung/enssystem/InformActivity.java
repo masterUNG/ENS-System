@@ -87,14 +87,30 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.button5:
                 //Update
-                getDateFromDatePicker();
 
-                showLog();
+                phoneString = phoneEditText.getText().toString();
+                detailString = detailEditText.getText().toString();
+
+                if (phoneString.equals("") || detailString.equals("")) {
+                    MyAlertDialog myAlertDialog = new MyAlertDialog();
+                    myAlertDialog.MyDialog(InformActivity.this, R.drawable.icon_question,
+                            "มีช่องว่าง", "กรุณากรอกให้ครบ คะ");
+                } else {
+                    getDateFromDatePicker();
+                    showLog();
+                }
+
                 break;
 
         } // switch
 
     }   // onClick
+
+    private void getValueFromEditText() {
+
+
+
+    }   // getValueFromEditText
 
     private void getDateFromDatePicker() {
 
