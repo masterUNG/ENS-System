@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,16 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
 
 public class InformActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -56,7 +67,6 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
         Log.d("test", "Lat = " + latADouble);
         Log.d("test", "Lng = " + lngADouble);
     }
-
 
 
     @Override
@@ -116,6 +126,7 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
                 Intent intent = new Intent(InformActivity.this, MapsActivity.class);
                 intent.putExtra("nameLogin", nameLoginString);
                 startActivity(intent);
+                finish();
 
                 break;
             case R.id.button5:
@@ -183,10 +194,7 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
 
     }   // typeContorller
 
-    private void getValueFromEditText() {
 
-
-    }   // getValueFromEditText
 
     private void getDateFromDatePicker() {
 
@@ -231,6 +239,38 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
 
     private void updateDataToServer() {
 
-    }
+        StrictMode.ThreadPolicy threadPolicy = new StrictMode.ThreadPolicy
+                .Builder().permitAll().build();
+        StrictMode.setThreadPolicy(threadPolicy);
+
+        try {
+
+            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            nameValuePairs.add(new BasicNameValuePair("isAdd", "true"));
+            nameValuePairs.add(new BasicNameValuePair("Day_Inform", dateString));
+            nameValuePairs.add(new BasicNameValuePair("Phone_Inform", phoneString));
+            nameValuePairs.add(new BasicNameValuePair("Type_Inform", typeString));
+            nameValuePairs.add(new BasicNameValuePair("Detail_Inform", detailString));
+            nameValuePairs.add(new BasicNameValuePair("Photo_Inform", "testPhoto"));
+            nameValuePairs.add(new BasicNameValuePair("Video_Inform", "testVideo"));
+            nameValuePairs.add(new BasicNameValuePair("Latitude", latString));
+            nameValuePairs.add(new BasicNameValuePair("Longitude", lngString));
+            nameValuePairs.add(new BasicNameValuePair("User_ID", nameLoginString));
+            nameValuePairs.add(new BasicNameValuePair("statusinform", "noData"));
+
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("http://swiftcodingthai.com/ens/php_add_inform_master.php");
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
+            httpClient.execute(httpPost);
+
+            Toast.makeText(InformActivity.this, "Update Successful", Toast.LENGTH_SHORT).show();
+            finish();
+
+        } catch (Exception e) {
+            Toast.makeText(InformActivity.this, "Cannot Update to mySQL", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }   // updateDataToServer
 
 }   // Main Class

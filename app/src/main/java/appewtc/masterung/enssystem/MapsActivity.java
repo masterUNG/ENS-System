@@ -39,6 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         intent.putExtra("douLat", latMarkerADouble);
         intent.putExtra("douLng", lngMarkerADouble);
         startActivity(intent);
+        finish();
     }
 
 
