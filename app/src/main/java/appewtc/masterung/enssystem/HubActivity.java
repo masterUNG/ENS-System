@@ -24,9 +24,21 @@ public class HubActivity extends AppCompatActivity {
 
     public void clickTHAI(View view) {
 
+        informTextView.setText(getResources().getString(R.string.th_infor));
+        newsTextView.setText(getResources().getString(R.string.th_news));
+        searchTextView.setText(getResources().getString(R.string.th_search));
+        staticTextView.setText(getResources().getString(R.string.th_status));
+        callTextView.setText(getResources().getString(R.string.th_call));
+
     }   // clickTHAI
 
     public void clickENG(View view) {
+
+        informTextView.setText(getResources().getString(R.string.en_infor));
+        newsTextView.setText(getResources().getString(R.string.en_news));
+        searchTextView.setText(getResources().getString(R.string.en_search));
+        staticTextView.setText(getResources().getString(R.string.en_status));
+        callTextView.setText(getResources().getString(R.string.en_call));
 
     }   // clickENG
 
