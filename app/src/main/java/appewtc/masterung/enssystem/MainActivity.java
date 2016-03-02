@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
 
     }   // checkUserAndPassword
 
-    private void welcome(String strName, String strSurname, final String strID) {
+    private void welcome(final String strName, String strSurname, final String strID) {
 
         AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
         objBuilder.setIcon(R.drawable.icon_question);
@@ -268,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent objIntent = new Intent(MainActivity.this, HubActivity.class);
                 objIntent.putExtra("ID", strID);
+                objIntent.putExtra("nameLogin", strName);
                 startActivity(objIntent);
                 finish();
 

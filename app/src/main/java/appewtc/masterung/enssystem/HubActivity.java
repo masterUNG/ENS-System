@@ -1,5 +1,6 @@
 package appewtc.masterung.enssystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +22,15 @@ public class HubActivity extends AppCompatActivity {
         bindWidget();
 
     }   // Main Method
+
+    public void clickInform(View view) {
+
+        Intent intent = new Intent(HubActivity.this, InformActivity.class);
+        String name = getIntent().getStringExtra("nameLogin");
+        intent.putExtra("nameLogin", name);
+        startActivity(intent);
+
+    }
 
     public void clickTHAI(View view) {
 
