@@ -2,9 +2,12 @@ package appewtc.masterung.enssystem;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -33,6 +36,8 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
 
         //Show Name
         showName();
+
+        typeController();
 
         //Button Controller
         buttonController();
@@ -84,6 +89,7 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.button11:
                 //Add Location
+                startActivity(new Intent(InformActivity.this, MapsActivity.class));
                 break;
             case R.id.button5:
                 //Update
@@ -97,6 +103,7 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
                             "มีช่องว่าง", "กรุณากรอกให้ครบ คะ");
                 } else {
                     getDateFromDatePicker();
+
                     showLog();
                 }
 
@@ -106,8 +113,33 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
 
     }   // onClick
 
-    private void getValueFromEditText() {
+    private void typeController() {
 
+        final String[] categoryStrings = new String[4];
+        categoryStrings[0] = "อุบัติเหตุ";
+        categoryStrings[1] = "ไฟไหม้";
+        categoryStrings[2] = "แผ่นดินไหว";
+        categoryStrings[3] = "น้ำท่วม";
+
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, categoryStrings);
+        typeSpinner.setAdapter(stringArrayAdapter);
+
+        typeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                typeString = categoryStrings[i];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                typeString = categoryStrings[0];
+            }
+        });
+
+    }   // typeContorller
+
+    private void getValueFromEditText() {
 
 
     }   // getValueFromEditText
@@ -129,12 +161,12 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
         builder.setIcon(R.drawable.logo48);
         builder.setTitle("โปรดตรวจสอบข้อมูล");
         builder.setMessage("ผู้แจ้งเหตุ = " + nameLoginString + "\n" +
-        "วันที่เกิดเหตุ = " + dateString + "\n" +
-        "เบอร์ของผู้แจ้ง = " + phoneString + "\n" +
-        "ประเภทเหตุการณ์ = " + typeString + "\n" +
-        "รายละเอียด = " + detailString + "\n" +
-        "ละติจุต = " + latString + "\n" +
-        "ลองจิจูต = " + lngString);
+                "วันที่เกิดเหตุ = " + dateString + "\n" +
+                "เบอร์ของผู้แจ้ง = " + phoneString + "\n" +
+                "ประเภทเหตุการณ์ = " + typeString + "\n" +
+                "รายละเอียด = " + detailString + "\n" +
+                "ละติจุต = " + latString + "\n" +
+                "ลองจิจูต = " + lngString);
         builder.setCancelable(false);
         builder.setPositiveButton("แจ้งเหตุ", new DialogInterface.OnClickListener() {
             @Override

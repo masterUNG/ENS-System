@@ -35,6 +35,7 @@
     <string name="th_search">ค้นหา</string>
     <string name="th_status">สถิติ</string>
     <string name="th_call">เบอร์ฉุกเฉิน</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
