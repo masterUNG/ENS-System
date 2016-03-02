@@ -1,14 +1,17 @@
 package appewtc.masterung.enssystem;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class InformActivity extends AppCompatActivity {
+public class InformActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
     private TextView showNameTextView;
@@ -31,7 +34,19 @@ public class InformActivity extends AppCompatActivity {
         //Show Name
         showName();
 
+        //Button Controller
+        buttonController();
+
     }   // Main Method
+
+    private void buttonController() {
+
+        addPhotoButton.setOnClickListener(this);
+        addVideoButton.setOnClickListener(this);
+        addLocationButton.setOnClickListener(this);
+        updateToSQLButton.setOnClickListener(this);
+
+    }   // buttonController
 
     private void showName() {
 
@@ -55,5 +70,64 @@ public class InformActivity extends AppCompatActivity {
         updateToSQLButton = (Button) findViewById(R.id.button5);
 
     }   // bindWidget
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+
+            case R.id.button4:
+                //Add Photo
+                break;
+            case R.id.button9:
+                //Add Video
+                break;
+            case R.id.button11:
+                //Add Location
+                break;
+            case R.id.button5:
+                //Update
+
+                showLog();
+
+                break;
+
+        } // switch
+
+    }   // onClick
+
+    private void showLog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.drawable.logo48);
+        builder.setTitle("โปรดตรวจสอบข้อมูล");
+        builder.setMessage("ผู้แจ้งเหตุ = " + nameLoginString + "\n" +
+        "วันที่เกิดเหตุ = " + dateString + "\n" +
+        "เบอร์ของผู้แจ้ง = " + phoneString + "\n" +
+        "ประเภทเหตุการณ์ = " + typeString + "\n" +
+        "รายละเอียด = " + detailString + "\n" +
+        "ละติจุต = " + latString + "\n" +
+        "ลองจิจูต = " + lngString);
+        builder.setCancelable(false);
+        builder.setPositiveButton("แจ้งเหตุ", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                updateDataToServer();
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setNegativeButton("แก้ไข", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+
+    }   // showLog
+
+    private void updateDataToServer() {
+
+    }
 
 }   // Main Class
