@@ -54,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
     }   // Main Method
 
+    public void clickSkip(View view) {
+        Intent objIntent = new Intent(MainActivity.this, HubActivity.class);
+        objIntent.putExtra("ID", 100);
+        objIntent.putExtra("nameLogin", "Guest");
+        startActivity(objIntent);
+        finish();
+    }
+
     private void deleteAllData() {
 
         SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,

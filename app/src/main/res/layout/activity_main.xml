@@ -39,7 +39,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linBotton">
 
         <Button
             android:layout_width="wrap_content"
@@ -57,5 +58,17 @@
             android:id="@+id/button2"
             android:layout_weight="1" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SKIP LOGIN >>"
+        android:id="@+id/textView18"
+        android:textSize="@dimen/h1"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/linBotton"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        android:onClick="clickSkip" />
 
 </RelativeLayout>
