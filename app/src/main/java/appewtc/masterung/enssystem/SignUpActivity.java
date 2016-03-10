@@ -23,10 +23,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     //Explicit
     private EditText userEditText, passwordEditText, nameEditText, surnameEditText,
-            phoneEditText, emailEditText;
+            phoneEditText, emailEditText, confirmPassEditText;
     private RadioGroup sexRadioGroup;
     private String userString, passwordString, nameString, surnameString,
-            phoneString, emailString, sexString;
+            phoneString, emailString, sexString, confirmPassString;
     private boolean statusABoolean = true;
 
 
@@ -74,6 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
         phoneEditText = (EditText) findViewById(R.id.editText8);
         emailEditText = (EditText) findViewById(R.id.editText9);
         sexRadioGroup = (RadioGroup) findViewById(R.id.ragSex);
+        confirmPassEditText = (EditText) findViewById(R.id.editText10);
 
 
     }   // bindWidget
@@ -86,6 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
         surnameString = surnameEditText.getText().toString().trim();
         phoneString = phoneEditText.getText().toString().trim();
         emailString = emailEditText.getText().toString().trim();
+        confirmPassString = confirmPassEditText.getText().toString().trim();
 
         if (checkSpace() || statusABoolean) {
             //Have Space
@@ -93,18 +95,38 @@ public class SignUpActivity extends AppCompatActivity {
             objMyAlertDialog.MyDialog(SignUpActivity.this,
                     R.drawable.icon_question, "กรอกข้อมูลไม่ครบ",
                     "กรุณากรอกข้อมูล และ เลือกข้อมูล ให้ครบ คะ");
-
-
         } else {
             //No Space
-            //confirmSignUp();
+            if (checkConfirmPass()) {
+                //Password OK
+                checkUser();
+            } else {
+                //Password False
+                MyAlertDialog myAlertDialog = new MyAlertDialog();
+                myAlertDialog.MyDialog(SignUpActivity.this,
+                        R.drawable.icon_question,
+                        "Password พิมพ์ผิด",
+                        "กรุณาพิมพ์ Password ให้เหมือนกัน");
+            }
 
-            checkUser();
 
         }   // if
 
 
     }   // clickSignUpSave
+
+    private boolean checkConfirmPass() {
+
+        boolean bolPassword = true;
+
+        if (passwordString.equals(confirmPassString)) {
+            bolPassword = true;
+        } else {
+            bolPassword = false;
+        }
+
+        return bolPassword;
+    }
 
     private void checkUser() {
 
@@ -198,7 +220,8 @@ public class SignUpActivity extends AppCompatActivity {
                 nameString.equals("") ||
                 surnameString.equals("") ||
                 phoneString.equals("") ||
-                emailString.equals("");
+                emailString.equals("") ||
+                confirmPassString.equals("");
     }
 
 }   // Main Class

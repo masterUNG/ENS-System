@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         objIntent.putExtra("ID", 100);
         objIntent.putExtra("nameLogin", "Guest");
         startActivity(objIntent);
-        finish();
+
     }
 
     private void deleteAllData() {
@@ -278,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
                 objIntent.putExtra("ID", strID);
                 objIntent.putExtra("nameLogin", strName);
                 startActivity(objIntent);
-                finish();
+
 
             }   //event
         });

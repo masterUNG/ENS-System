@@ -10,6 +10,9 @@
     <!--Kao-->
     <string name="username">ชื่อผู้ใช้ :</string>
     <string name="password">รหัสผ่าน :</string>
+
+    <string name="password1">ยื่นยัน รหัสผ่าน :</string>
+
     <string name="name">ชื่อ :</string>
     <string name="surname">นามสกุล :</string>
     <string name="gender">เพศ :</string>
