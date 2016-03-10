@@ -151,7 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
         objBuilder.setIcon(R.drawable.logo48);
         objBuilder.setTitle("โปรดตรวจข้อมูล");
         objBuilder.setMessage("User = " + userString + "\n" +
-                "Password = " + passwordString + "\n" +
+
                 "ชื่อ = " + nameString + "\n" +
                 "นามสกุล = " + surnameString + "\n" +
                 "เพศ = " + sexString + "\n" +
