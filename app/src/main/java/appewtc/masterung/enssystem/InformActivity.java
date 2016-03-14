@@ -59,6 +59,17 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
 
     }   // Main Method
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        if (latADouble != 0) {
+            TextView showLocation = (TextView) findViewById(R.id.textView20);
+            showLocation.setText("Have Location Finish");
+        }
+
+    }
+
     private void showLatLng() {
 
         latADouble = getIntent().getDoubleExtra("douLat", 0);

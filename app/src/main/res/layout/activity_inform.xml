@@ -133,6 +133,13 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Location"
+                android:id="@+id/textView20"
+                android:textSize="@dimen/h1" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
