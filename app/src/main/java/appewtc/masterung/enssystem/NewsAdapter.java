@@ -19,7 +19,10 @@ public class NewsAdapter extends BaseAdapter{
     private Context context;
     private String[] titleStrings, dateStrings, iconStrings;
 
-    public NewsAdapter(Context context, String[] titleStrings, String[] dateStrings, String[] iconStrings) {
+    public NewsAdapter(Context context,
+                       String[] titleStrings,
+                       String[] dateStrings,
+                       String[] iconStrings) {
         this.context = context;
         this.titleStrings = titleStrings;
         this.dateStrings = dateStrings;
