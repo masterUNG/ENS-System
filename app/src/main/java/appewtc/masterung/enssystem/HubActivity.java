@@ -26,6 +26,12 @@ public class HubActivity extends AppCompatActivity {
 
     }   // Main Method
 
+    public void clickCall(View view) {
+        startActivity(new Intent(HubActivity.this, CallListView.class));
+    }
+
+
+
     public void clickNews(View view) {
         Intent intent = new Intent(HubActivity.this, NewsListView.class);
         startActivity(intent);
