@@ -45,21 +45,31 @@ public class CallListView extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        int[] iconInts = {R.drawable.catagory1, R.drawable.catagory2,
+                R.drawable.catagory3, R.drawable.catagory4, R.drawable.catagory5};
+        int intUserChoose = R.drawable.catagory1;
+
         switch (view.getId()) {
 
             case R.id.imageView10:
+                intUserChoose = iconInts[0];
                 break;
             case R.id.imageView11:
+                intUserChoose = iconInts[1];
                 break;
             case R.id.imageView12:
+                intUserChoose = iconInts[2];
                 break;
             case R.id.imageView13:
+                intUserChoose = iconInts[3];
                 break;
             case R.id.imageView14:
+                intUserChoose = iconInts[4];
                 break;
         }   // switch
 
         Intent intent = new Intent(CallListView.this, CallPhone.class);
+        intent.putExtra("Icon", intUserChoose);
         startActivity(intent);
 
     }   // onClick
