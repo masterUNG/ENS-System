@@ -16,7 +16,9 @@ public class PhoneAdapter extends BaseAdapter{
     private Context context;
     private String[] callStrings, phoneStrings;
 
-    public PhoneAdapter(Context context, String[] callStrings, String[] phoneStrings) {
+    public PhoneAdapter(Context context,
+                        String[] callStrings,
+                        String[] phoneStrings) {
         this.context = context;
         this.callStrings = callStrings;
         this.phoneStrings = phoneStrings;

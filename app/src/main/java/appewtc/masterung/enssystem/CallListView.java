@@ -49,27 +49,45 @@ public class CallListView extends AppCompatActivity implements View.OnClickListe
                 R.drawable.catagory3, R.drawable.catagory4, R.drawable.catagory5};
         int intUserChoose = R.drawable.catagory1;
 
+        String[] callStrings, phoneStrings;
+
         switch (view.getId()) {
 
             case R.id.imageView10:
                 intUserChoose = iconInts[0];
+                callStrings = getResources().getStringArray(R.array.cat0_name);
+                phoneStrings = getResources().getStringArray(R.array.cat0_phone);
                 break;
             case R.id.imageView11:
                 intUserChoose = iconInts[1];
+                callStrings = getResources().getStringArray(R.array.cat1_name);
+                phoneStrings = getResources().getStringArray(R.array.cat1_phone);
                 break;
             case R.id.imageView12:
                 intUserChoose = iconInts[2];
+                callStrings = getResources().getStringArray(R.array.cat2_name);
+                phoneStrings = getResources().getStringArray(R.array.cat2_phone);
                 break;
             case R.id.imageView13:
                 intUserChoose = iconInts[3];
+                callStrings = getResources().getStringArray(R.array.cat3_name);
+                phoneStrings = getResources().getStringArray(R.array.cat3_phone);
                 break;
             case R.id.imageView14:
                 intUserChoose = iconInts[4];
+                callStrings = getResources().getStringArray(R.array.cat4_name);
+                phoneStrings = getResources().getStringArray(R.array.cat4_phone);
+                break;
+            default:
+                callStrings = getResources().getStringArray(R.array.cat0_name);
+                phoneStrings = getResources().getStringArray(R.array.cat0_phone);
                 break;
         }   // switch
 
         Intent intent = new Intent(CallListView.this, CallPhone.class);
         intent.putExtra("Icon", intUserChoose);
+        intent.putExtra("Call", callStrings);
+        intent.putExtra("Phone", phoneStrings);
         startActivity(intent);
 
     }   // onClick
