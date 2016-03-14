@@ -59,6 +59,8 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
 
     }   // Main Method
 
+
+
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -66,9 +68,9 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
         if (latADouble != 0) {
             TextView showLocation = (TextView) findViewById(R.id.textView20);
             showLocation.setText("Have Location Finish");
-        }
+        }   // if
 
-    }
+    }   // onRestart
 
     private void showLatLng() {
 
@@ -86,6 +88,11 @@ public class InformActivity extends AppCompatActivity implements View.OnClickLis
 
         latADouble = getIntent().getDoubleExtra("douLat", 0);
         lngADouble = getIntent().getDoubleExtra("douLng", 0);
+
+        if (latADouble != 0) {
+            TextView showLocation = (TextView) findViewById(R.id.textView20);
+            showLocation.setText("Have Location Finish");
+        }
 
     }
 
