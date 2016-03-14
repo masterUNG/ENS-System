@@ -60,5 +60,6 @@ public class NewsAdapter extends BaseAdapter{
         Picasso.with(context).load(iconStrings[i]).resize(200, 100).into(iconImageView);
 
         return view1;
+
     }
 }   // Main Class
