@@ -82,8 +82,9 @@ public class NewsDetail extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.bttDetailVideo:
 
-                showVideoView();
-
+               // showVideoView();
+                startActivity(new Intent(this, HubActivity.class));
+                finish();
                 break;
         }   // switch
 
