@@ -2,6 +2,8 @@ package appewtc.masterung.enssystem;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -35,6 +37,15 @@ public class CallPhone extends AppCompatActivity {
 
         PhoneAdapter phoneAdapter = new PhoneAdapter(CallPhone.this, callStrings, phoneStrings);
         phoneListView.setAdapter(phoneAdapter);
+
+        phoneListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+
+            }   // onItemClick
+        });
 
 
     }   // createListView
