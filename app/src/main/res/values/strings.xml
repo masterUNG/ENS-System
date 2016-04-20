@@ -42,5 +42,12 @@
     <string name="video">วีดีโอ ที่เกี่ยวข้อง</string>
     <string name="district">อำเภอ</string>
 
+    <string name="grap">กราฟแสดงสถิติ</string>
+
+    <string name="cat1">ไฟไหม้</string>
+    <string name="cat2">น้ำท่วม</string>
+    <string name="cat3">แผ่นดินไหว</string>
+    <string name="cat4">อุบัติเหตุ</string>
+
 
 </resources>
