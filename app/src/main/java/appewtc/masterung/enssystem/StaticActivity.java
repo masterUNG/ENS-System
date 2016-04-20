@@ -24,7 +24,8 @@ public class StaticActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_static);
 
-        test();
+        MySynData mySynData = new MySynData();
+        mySynData.execute();
 
     }   // Main Method
 
@@ -78,6 +79,16 @@ public class StaticActivity extends AppCompatActivity {
 
                 }   // for
 
+                GraphView graph = (GraphView) findViewById(R.id.graph);
+                LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                        new DataPoint(0, 0),
+                        new DataPoint(1, cat1AnInt),
+                        new DataPoint(2, cat2AnInt),
+                        new DataPoint(3, cat3AnInt),
+                        new DataPoint(4, cat4AnInt)
+                });
+                graph.addSeries(series);
+
 
 
             } catch (Exception e) {
@@ -88,32 +99,5 @@ public class StaticActivity extends AppCompatActivity {
         }   // onPost
 
     }   // MySynData
-
-
-    private void test() {
-
-
-
-        int[] intY = new int[4];
-        for (int i=0;i<4;i++) {
-
-
-
-
-
-
-        }   //for
-
-
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 0),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series);
-    }   // test
 
 }   // Main Class
