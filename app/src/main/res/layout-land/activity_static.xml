@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/cat1"
+            android:text="@string/cat4"
             android:id="@+id/textView30"
             android:layout_weight="1"
             android:gravity="right" />
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/cat2"
+            android:text="@string/cat1"
             android:id="@+id/textView31"
             android:layout_weight="1"
             android:gravity="right" />
@@ -63,7 +63,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/cat4"
+            android:text="@string/cat2"
             android:id="@+id/textView33"
             android:layout_weight="1"
             android:gravity="right"
