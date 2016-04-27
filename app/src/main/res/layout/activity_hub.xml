@@ -73,7 +73,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imageView6"
                 android:src="@drawable/section3"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="clickSearch" />
 
             <ImageView
                 android:layout_width="0dp"
