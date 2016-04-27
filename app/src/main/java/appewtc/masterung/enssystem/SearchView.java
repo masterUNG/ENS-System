@@ -1,6 +1,8 @@
 package appewtc.masterung.enssystem;
 
 import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,21 +26,20 @@ public class SearchView extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_view);
 
+        SQLiteDatabase sqLiteDatabase = openOrCreateDatabase(MyOpenHelper.DATABASE_NAME,
+                MODE_PRIVATE, null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM newsTABLE", null);
+        cursor.moveToFirst();
+        int intCursor = cursor.getCount();
+        country = new String[intCursor];
 
+        for (int i=0;i<intCursor;i++) {
 
+            country[i] = cursor.getString(1);
+            cursor.moveToNext();
 
-        country = new String[]{" aกรรไกร", " aกระจก ", "aกระดานโต้คลื่น",
-                "abกระดาษ", " abกระท่อม", " abกล่อง", " กล้องถ่ายรูป", " ก๋วยเตี๋ยว",
-                "การเช่ารถ", " การซักรีด", " การเดินทาง", " ขนม,ลูกอม", " ขนมปัง", " ขนาด"
-                , " ขโมย", " ขยะ", " ขวด", " ของขวัญ", " ขอบคุณ", " ของเล่น", " ขี่จักรยาน"
-                , " คนขายดอกไม้", " คนขายเนื้อ", " คนเดียว,โดดเดี่ยว", " คนพิการ",
-                " ครีมนวดผม", " คลื่นไส้", " ความบันเทิง", " ความร้อน", " ค่าใช้จ่าย", " ง่วงซึม", " งาน", " งานแกะสลัก"
-                , " ง่าย สบายๆ", " เงิน(แร่ธาตุ)", " เงินตรา", " เงินสด", " เงียบ"};
-
-
-
-
-
+        }   // for
+        cursor.close();
 
         // Locate the ListView in listview_main.xml
         list = (ListView) findViewById(R.id.listview);
@@ -80,5 +81,9 @@ public class SearchView extends Activity {
                 // TODO Auto-generated method stub
             }
         });
-    }
-}
+    }   // Main Method
+
+
+
+
+}   // Main Class
