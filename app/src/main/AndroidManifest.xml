@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="appewtc.masterung.enssystem">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -53,7 +53,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".StaticActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ChooseTypeGraph"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StaticDistrict"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

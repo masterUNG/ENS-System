@@ -49,5 +49,8 @@
     <string name="cat3">แผ่นดินไหว</string>
     <string name="cat4">อุบัติเหตุ</string>
 
+    <string name="choose1">ประเภทอุบัติเหตุ</string>
+    <string name="choose2">แบ่งตามอำเภอ</string>
+
 
 </resources>

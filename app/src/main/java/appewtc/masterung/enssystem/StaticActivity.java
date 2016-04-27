@@ -3,6 +3,7 @@ package appewtc.masterung.enssystem;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -28,6 +29,10 @@ public class StaticActivity extends AppCompatActivity {
         mySynData.execute();
 
     }   // Main Method
+
+    public void clickBackStatic(View view) {
+        finish();
+    }
 
     //Create Inner Class
     public class MySynData extends AsyncTask<Void, Void, String> {
