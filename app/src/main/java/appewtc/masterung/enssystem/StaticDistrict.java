@@ -1,8 +1,10 @@
 package appewtc.masterung.enssystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -14,7 +16,7 @@ public class StaticDistrict extends AppCompatActivity {
         setContentView(R.layout.activity_static_district);
 
         //Create ListView
-        String[] districtStrings = new String[11];
+        final String[] districtStrings = new String[11];
         districtStrings[0] = "อำเภอเมือง";
         districtStrings[1] = "อำเภอบางคล้า";
         districtStrings[2] = "อำเภอบางน้ำเปรี้ยว";
@@ -31,6 +33,18 @@ public class StaticDistrict extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, districtStrings);
         ListView listView = (ListView) findViewById(R.id.listView3);
         listView.setAdapter(stringArrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(StaticDistrict.this, StaticActivity.class);
+                intent.putExtra("Status", true);
+                intent.putExtra("District", districtStrings[i]);
+                startActivity(intent);
+
+            }   // onItem
+        });
 
     }   // Main Method
 

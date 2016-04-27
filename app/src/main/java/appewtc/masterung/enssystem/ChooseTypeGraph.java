@@ -18,11 +18,19 @@ public class ChooseTypeGraph extends AppCompatActivity {
     }
 
     public void clickChoose1(View view) {
-        startActivity(new Intent(ChooseTypeGraph.this, StaticActivity.class));
+
+        Intent intent = new Intent(ChooseTypeGraph.this, StaticActivity.class);
+        intent.putExtra("Status", false);
+        startActivity(intent);
+
     }
 
     public void clickChoose2(View view) {
-        startActivity(new Intent(ChooseTypeGraph.this, StaticDistrict.class));
+
+        Intent intent = new Intent(ChooseTypeGraph.this, StaticDistrict.class);
+        intent.putExtra("Status", true);
+        startActivity(intent);
+
     }
 
 }   // Main Class

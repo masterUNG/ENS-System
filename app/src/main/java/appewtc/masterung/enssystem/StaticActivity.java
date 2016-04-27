@@ -19,11 +19,14 @@ public class StaticActivity extends AppCompatActivity {
 
     //Explicit
     private int cat1AnInt, cat2AnInt, cat3AnInt, cat4AnInt;
+    private boolean statusABoolean = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_static);
+
+        statusABoolean = getIntent().getBooleanExtra("Status", false);
 
         MySynData mySynData = new MySynData();
         mySynData.execute();
@@ -71,15 +74,39 @@ public class StaticActivity extends AppCompatActivity {
 
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String strCategory = jsonObject.getString("Type_Inform");
+                    String strDistrictJSON = jsonObject.getString("District");
 
-                    if (strCategory.equals(categoryStrings[0])) {
-                        cat1AnInt++;
-                    } else if (strCategory.equals(categoryStrings[1])) {
-                        cat2AnInt++;
-                    } else if (strCategory.equals(categoryStrings[2])) {
-                        cat3AnInt++;
+                    if (statusABoolean) {
+
+                        String myDistrict = getIntent().getStringExtra("District");
+
+                        if (myDistrict.equals(strDistrictJSON)) {
+
+                            if (strCategory.equals(categoryStrings[0])) {
+                                cat1AnInt++;
+                            } else if (strCategory.equals(categoryStrings[1])) {
+                                cat2AnInt++;
+                            } else if (strCategory.equals(categoryStrings[2])) {
+                                cat3AnInt++;
+                            } else {
+                                cat4AnInt++;
+                            }   // if
+
+                        }   // if
+
+
                     } else {
-                        cat4AnInt++;
+
+                        if (strCategory.equals(categoryStrings[0])) {
+                            cat1AnInt++;
+                        } else if (strCategory.equals(categoryStrings[1])) {
+                            cat2AnInt++;
+                        } else if (strCategory.equals(categoryStrings[2])) {
+                            cat3AnInt++;
+                        } else {
+                            cat4AnInt++;
+                        }   // if
+
                     }
 
                 }   // for
